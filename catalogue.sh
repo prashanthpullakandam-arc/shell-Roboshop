@@ -18,7 +18,7 @@ then
 echo -e "$R not a root user $n";
 exit 1;
 fi
-mkdir -p $LOG_PATH
+mkdir -p $LOG
 validate(){
 if [ $1 -eq 0 ]
 then

@@ -7,7 +7,7 @@ LOG="/var/log/shellscript"
 LOG_PATH="$LOG/$0.log"
 SCRIPT_DIR=$PWD
 MONGODB_HOST="mongodb.ananthsolutions.online"
-mkdir -p $LOG_PATH
+
 
 
 user=$(id -u)
@@ -17,7 +17,7 @@ then
 echo "$R not a root user $n";
 exit 1;
 fi
-
+mkdir -p $LOG_PATH
 validate(){
 if [ $1 -eq 0 ]
 then

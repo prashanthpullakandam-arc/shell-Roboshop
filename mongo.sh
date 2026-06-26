@@ -1,9 +1,9 @@
 #!/bin/bash
 
-R="e\[31m"
-G="e\[32m"
-Y="e\[33m"
-n="e\[0m"
+R="\e[31m"
+G="\e[32m"
+Y="\e[33m"
+n="\e[0m"
 
 user=$(id -u)
 if [ $user -ne 0 ]

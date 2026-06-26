@@ -9,7 +9,7 @@ instanceid=$(aws ec2 run-instances \
     --count 1 \
     --instance-type t3.micro \
     --security-group-ids $securityid \
-    --tag-specifications 'ResourceType=instance,Tags=[{Key=$Instance,Value=MyServer}]' \
+    --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=$Instance}]' \
 	--query "Instances[0].InstanceId" \
     --output text)
 if [ $Instance = 'Frontend' ]
@@ -17,15 +17,13 @@ then
 IP=$(aws ec2 describe-instances \
     --instance-ids $instanceid \
     --query "Reservations[*].Instances[*].PublicIpAddress" \
-    --output text
+    --output text)
     echo "$IP"
-)
 else
-IP=(aws ec2 describe-instances \
+IP=$(aws ec2 describe-instances \
     --instance-ids $instanceid \
     --query "Reservations[*].Instances[*].PrivateIpAddress" \
-    --output text
+    --output text)
     echo "$IP"
-)
 fi
 done 

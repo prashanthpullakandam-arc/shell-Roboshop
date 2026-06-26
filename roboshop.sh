@@ -9,9 +9,10 @@ instanceid=$(aws ec2 run-instances \
     --count 1 \
     --instance-type t3.micro \
     --security-group-ids $securityid \
-    --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=$Instance}]' \
+    --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=$Instance}]" \
 	--query "Instances[0].InstanceId" \
     --output text)
+
 if [ $Instance = 'Frontend' ]
 then
 IP=$(aws ec2 describe-instances \

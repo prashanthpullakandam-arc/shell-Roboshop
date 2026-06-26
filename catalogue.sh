@@ -41,7 +41,8 @@ echo -e "$Y user already available $n" &>>$LOG_PATH
 else
 useradd --system --home /app --shell /sbin/nologin --comment "roboshop system user" roboshop
 validate $? "user created"
-mkdir -p /app
+fi
+mkdir -p /app/*
 curl -o /tmp/catalogue.zip https://roboshop-artifacts.s3.amazonaws.com/catalogue-v3.zip 
 validate $? "downloaded data"
 rm -rf /app

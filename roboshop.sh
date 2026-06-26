@@ -1,6 +1,6 @@
 #!/bin/bash
-securityid ="sg-084020e387d413aac"
-AmiId ="ami-0220d79f3f480ecf5"
+securityid="sg-084020e387d413aac"
+AmiId="ami-0220d79f3f480ecf5"
 
 for Instance in $@
 do
@@ -18,12 +18,14 @@ IP=$(aws ec2 describe-instances \
     --instance-ids $instanceid \
     --query "Reservations[*].Instances[*].PublicIpAddress" \
     --output text
+    echo "$IP"
 )
 else
 IP=(aws ec2 describe-instances \
     --instance-ids $instanceid \
     --query "Reservations[*].Instances[*].PrivateIpAddress" \
     --output text
+    echo "$IP"
 )
 fi
 done 

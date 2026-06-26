@@ -35,7 +35,7 @@ dnf install nodejs -y
 validate $? "node js installed"
 
 id -roboshop &>>$LOG_PATH
-if[ $? -eq 0 ] 
+if [ $? -eq 0 ] 
 then
 echo -e "$Y user already available $n" &>>$LOG_PATH
 else

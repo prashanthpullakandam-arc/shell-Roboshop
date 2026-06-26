@@ -42,10 +42,10 @@ else
 useradd --system --home /app --shell /sbin/nologin --comment "roboshop system user" roboshop
 validate $? "user created"
 fi
-mkdir -p /app/*
+mkdir -p /app
 curl -o /tmp/catalogue.zip https://roboshop-artifacts.s3.amazonaws.com/catalogue-v3.zip 
 validate $? "downloaded data"
-rm -rf /app
+rm -rf /app/*
 validate $? "removed data from temp"
 cd /app
 unzip /tmp/catalogue.zip

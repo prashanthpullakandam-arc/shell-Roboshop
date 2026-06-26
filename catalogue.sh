@@ -3,6 +3,7 @@ R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
 n="\e[0m"
+
 LOG="/var/log/shellscript"
 LOG_PATH="$LOG/$0.log"
 SCRIPT_DIR=$PWD
@@ -14,16 +15,16 @@ user=$(id -u)
 
 if [ $user -ne 0 ]
 then
-echo "$R not a root user $n";
+echo -e "$R not a root user $n";
 exit 1;
 fi
 mkdir -p $LOG_PATH
 validate(){
 if [ $1 -eq 0 ]
 then
-echo "$G $2 successfully$n" |tee -a $LOG_PATH
+echo -e "$G $2 successfully$n" |tee -a $LOG_PATH
 else
-echo "$R $2 Failed $n" |tee -a $LOG_PATH
+echo -e "$R $2 Failed $n" |tee -a $LOG_PATH
 fi
 }
 dnf module disable nodejs -y
@@ -36,7 +37,7 @@ validate $? "node js installed"
 id -roboshop &>>$LOG_PATH
 if[ $? -eq 0]
 then
-echo "$Y user already available $n" &>>$LOG_PATH
+echo -e "$Y user already available $n" &>>$LOG_PATH
 else
 useradd --system --home /app --shell /sbin/nologin --comment "roboshop system user" roboshop
 validate $? "user created"

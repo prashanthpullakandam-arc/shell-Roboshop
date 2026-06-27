@@ -9,7 +9,7 @@ LOG="$LOG_PATH/$0.log"
 user=$(id -u)
 if [ $user -ne 0 ]
 echo  -e "$R not a root user $N"
-exit 1;
+exit 1
 fi
 mkdir -p $LOG_PATH
 validate(){

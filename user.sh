@@ -12,6 +12,7 @@ then
 echo -e "$R not a root user $N"
 exit 1;
 fi
+mkdir -p $LOG_PATH
 validate(){
 if [ $1 -eq 0 ]
 then
@@ -41,7 +42,7 @@ unzip /tmp/user.zip
 validate $? "files unzipped"
 npm install
 validate $? "installed depenceies"
-cp $PWD/user.service /etc/systemd/system
+cp $Directory/user.service /etc/systemd/system
 validate $? "file copied"
 systemctl daemon-reload
 validate $? "daemon reloaded"

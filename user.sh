@@ -35,7 +35,7 @@ useradd --system --home /app --shell /sbin/nologin --comment "roboshop system us
 validate $? "user created"
 fi
 mkdir -p /app
-mkdir -rf /app/*
+rm -rf /app/*
 curl -L -o /tmp/user.zip https://roboshop-artifacts.s3.amazonaws.com/user-v3.zip 
 cd /app 
 unzip /tmp/user.zip

@@ -9,7 +9,7 @@ CURRENT_LOG=$PWD
 user=$(id -u)
 if [ $user -ne 0 ]
 then
-echo  -e "$R not a root user $N"
+echo -e "not a super user" |tee -a $LOG
 exit 1;
 fi
 mkdir -p $LOG_PATH

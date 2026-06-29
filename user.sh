@@ -49,4 +49,3 @@ validate $? "daemon reloaded"
 systemctl enable user
 systemctl start user
 validate $? "user started"
-

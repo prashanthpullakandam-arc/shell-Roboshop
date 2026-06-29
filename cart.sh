@@ -6,10 +6,10 @@ N="\e[0m"
 LOG_PATH="/var/log/roboshop"
 LOG="$LOG_PATH/$0.log"
 CURRENT_LOG=$PWD
-Userp=$(id -u)
-if [ $USerp -ne 0 ]
+user=$(id -u)
+if [ $user -ne 0 ]
 then
-echo -e "not a super user" |tee -a $LOG
+echo  -e "$R not a root user $N"
 exit 1;
 fi
 mkdir -p $LOG_PATH

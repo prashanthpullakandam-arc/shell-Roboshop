@@ -11,6 +11,7 @@ if [ $USerp -ne 0 ]
 then
 echo -e "not a super user" |tee -a $LOG
 exit 1;
+fi
 mkdir -p $LOG_PATH
 validate (){
 if [ $1 -eq 0 ]

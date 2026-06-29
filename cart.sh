@@ -7,13 +7,13 @@ LOG_PATH="/var/log/roboshop"
 LOG="$LOG_PATH/$0.log"
 CURRENT_LOG=$PWD
 Userp= $(id -u)
-if[ $USerp -ne 0 ]
+if [ $USerp -ne 0 ]
 then
 echo -e "not a super user" |tee -a $LOG
 exit 1;
 mkdir -p $LOG_PATH
 validate (){
-if[ $1 -eq 0 ]
+if [ $1 -eq 0 ]
 then
 echo -e "$2 sucessfull" | tee -a $LOG
 else
@@ -26,7 +26,7 @@ validate $? "dnf enable"
 dnf install nodejs -y
 validate $?  "dnf installed"
 id roboshop
-if[ $? -eq 0 ]
+if [ $? -eq 0 ]
 then
 echo -e "$Y user already available"
 fi

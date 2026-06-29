@@ -6,8 +6,8 @@ N="\e[0m"
 LOG_PATH="/var/log/roboshop"
 LOG="$LOG_PATH/$0.log"
 CURRENT_LOG=$PWD
-user=$(id -u)
-if [ $user -ne 0 ]
+Userp=$(id -u)
+if [ $Userp -ne 0 ]
 then
 echo -e "not a super user" |tee -a $LOG
 exit 1;

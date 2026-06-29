@@ -32,14 +32,14 @@ then
 echo -e "$Y user already available"
 fi
 useradd --system --home /app --shell /sbin/nologin --comment "roboshop system user" roboshop
-mkdir /app 
+mkdir -p /app 
 rm -rf /app/*
 curl -L -o /tmp/cart.zip https://roboshop-artifacts.s3.amazonaws.com/cart-v3.zip
 cd /app 
 unzip /tmp/cart.zip
 validate $? "file unzipped"
 npm install 
-cp $PWD/cart.service /etc/systemd/system/cart.service
+cp $CURRENT_LOG/cart.service /etc/systemd/system/cart.service
 systemctl daemon-reload
 validate $? "Damon reloaded"
 systemctl enable cart 
